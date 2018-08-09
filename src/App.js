@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import logo from './logo.svg';
 import './App.css';
+import * as actions from "./store/actions";
 
 class App extends Component {
+
+  componentDidMount() {
+      this.props.fetchData()
+  }
+
   render() {
     return (
       <div className="App">
@@ -18,4 +25,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = ({ DATA }) => {
+  return {
+    DATA
+  };
+};
+
+export default connect(mapStateToProps, actions)(App);
+
+//export default App

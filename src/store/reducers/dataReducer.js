@@ -1,10 +1,12 @@
 import { FETCH_DATA } from "../actions/types";
 
-export default (state = {}, action) => {
+const testData = (state = {}, action) => {
   switch (action.type) {
-    case "FETCH_DATA":
+    case FETCH_DATA:
       return action.payload;
     default:
       return state;
   }
 };
+
+export default testData;
